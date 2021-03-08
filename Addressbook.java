@@ -246,7 +246,35 @@ public class Addressbook {
             }
         }
     }
-    
+    public void searchincitydictionary() {
+        System.out.println("Enter the city to search to get people");
+        String city = sc.next();
+        Contact contact = new Contact();
+        for (int i = 0; i < list.size(); i++) {
+            citydictionary.put(contact.getFirstname(), contact.getCity());
+        }
+        for (int i =0; i < citydictionary.size();i++) {
+            if (city.equals(list.get(city))) {
+                citydictionary.get(contact.getFirstname(), contact.getCity());
+            }
+        }
+    }
+    public void searchinstatedictionary() {
+        System.out.println("Enter the state to search to get people");
+        String state = sc.next();
+        Contact contact = new Contact();
+        for (int i = 0; i < list.size(); i++) {
+            statedictionary.put(contact.getFirstname(), contact.getCity());
+        }
+        for (int i =0; i < citydictionary.size();i++) {
+            if (state.equals(list.get(state))) {
+                statedictionary.get(contact.getFirstname(), contact.getState());
+            }
+        }
+    }
+
+
+
     public static void main(String[] args) {
         System.out.println("Welcome To Address Book Problem\n");
 
