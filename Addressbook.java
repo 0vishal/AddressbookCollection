@@ -257,6 +257,10 @@ public class Addressbook {
 
 
     public void searchincitydictionary() {
+        list.add(new Contact("Vishal", "Salaskar", "Khar", "Malvan", "Maharashtra", "45", "897263371383", "vishal@gmail.com"));
+        list.add(new Contact("Sarvesh", "Salaskar", "Khar", "Pune", "Goa", "75", "852354545454", "sarvesh@gmail.com"));
+        list.add(new Contact("Siddhesh", "Salaskar", "Khar", "NaviMumbai", "Karnataka", "85", "896364644464", "siddhesh@gmail.com"));
+        System.out.println(list);
         System.out.println("Enter the city to search to get people");
         String city = sc.next();
         for (Contact contact : list) {
