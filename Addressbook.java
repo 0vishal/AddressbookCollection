@@ -238,13 +238,36 @@ class AddressBook {
         }
     }
 
+
+    public void Searchpersonwithcity() {
+        System.out.println("Enter city for the contact info: ");
+        String city = sc.next();
+        for (int i = 0; i < list.size(); i++) {
+            if (city.equals(list.get(i).getCity())) {
+                System.out.println(list.get(i));
+            }
+        }
+    }
+
+    public void Searchpersonwithstate() {
+        System.out.println("Enter state for the contact info: ");
+        String state = sc.next();
+        for (int i = 0; i < list.size(); i++) {
+            if (state.equals(list.get(i).getState())) {
+                System.out.println(list.get(i));
+            }
+        }
+    }
+
+
     public static void main(String[] args) {
         {
             System.out.println("Welcome To Address Book Problem\n");
 
             AddressBook address = new AddressBook(null);
 
-            System.out.print("1.Add AddressBook \n2.Add Contact \n3.Delete \n4.Edit ");
+            System.out.print("1.Add AddressBook \n2.Add Contact \n3.Delete \n4.Edit \\n5.Search_Person_with_city \" +\n" +
+                    "                    \"\\n6.Search_Person_with_State ");
             int check=sc.nextInt();
             switch(check)
             {
@@ -259,6 +282,16 @@ class AddressBook {
                     break;
                 case 4:
                     Edit();
+                    break;
+                case 5:
+                    address.DefaultBook();
+                    address.DefaultContact();
+                    address.Searchpersonwithcity();
+                    break;
+                case 6:
+                    address.DefaultBook();
+                    address.DefaultContact();
+                    address.Searchpersonwithstate();
                     break;
 
 
