@@ -299,6 +299,33 @@ class AddressBook {
         }
     }
 
+    public void sortbyCity() {
+        System.out.println("\n After Sorting the contact details by City : \n");
+        List<Contact> SortedList = list.stream()
+                .sorted(Comparator.comparing(Contact::getCity))
+                .collect(Collectors.toList());
+        SortedList.forEach(System.out::println);
+
+    }
+
+    public void sortbyState() {
+
+        System.out.println("\n After Sorting the contact details by State : \n");
+        List<Contact> SortedList = list.stream()
+                .sorted(Comparator.comparing(Contact::getState))
+                .collect(Collectors.toList());
+        SortedList.forEach(System.out::println);
+    }
+    public void sortbyZip()
+    {
+        System.out.println("\n After Sorting the contact details by Zip : \n");
+        List<Contact> SortedList = list.stream()
+                .sorted(Comparator.comparing(Contact::getZip))
+                .collect(Collectors.toList());
+        SortedList.forEach(System.out::println);
+    }
+
+
 
     public static void main(String[] args) {
         {
@@ -307,7 +334,7 @@ class AddressBook {
             AddressBook address = new AddressBook(null);
 
             System.out.print("1.Add AddressBook \n2.Add Contact \n3.Delete \n4.Edit \\n5.Search_Person_with_city \" +\n" +
-                    "                    \"\\n6.Search_Person_with_State ");
+                    "                    \"\\n6.Search_Person_with_State  \\n7.PersonCityDictionary+count \\n8.PersonStateDictionary+count\"\\n9.sort_by_City\\n10.sort_by_State\\n11.sort_by_Zip\" ");
             int check=sc.nextInt();
             switch(check)
             {
@@ -343,6 +370,21 @@ class AddressBook {
                     address.DefaultBook();
                     address.DefaultContact();
                     address.PersonStateDictionary();
+                    break;
+                case 9:
+                    address.DefaultBook();
+                    address.DefaultContact();
+                    address.sortbyCity();
+                    break;
+                case 10:
+                    address.DefaultBook();
+                    address.DefaultContact();
+                    address.sortbyState();
+                    break;
+                case 11:
+                    address.DefaultBook();
+                    address.DefaultContact();
+                    address.sortbyZip();
                     break;
 
 
