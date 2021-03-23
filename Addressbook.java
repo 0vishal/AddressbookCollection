@@ -122,7 +122,9 @@ class AddressBook {
     static ArrayList<Contact> list = new ArrayList<Contact>();
     public static AddressBook addressBook = new AddressBook(null);
     public static Contact contact = new Contact();
-
+    public HashMap<String, String> citydict = new HashMap<>();
+    public HashMap<String, String> statedict = new HashMap<>();
+    public int count = 0;
     static Scanner sc = new Scanner(System.in);
     public static ArrayList<AddressBook> book = new ArrayList<>();
   
@@ -238,6 +240,44 @@ class AddressBook {
         }
     }
 
+    public void PersonCityDictionary() {
+        for (AddressBook address : book) {
+            for (Contact contact : address.list) {
+                String name = contact.getFirstName();
+                citydict.put(name, contact.getCity());
+            }
+        }
+        System.out.println("Enter the city name to search for contacts: ");
+        String city = sc.next();
+        for (Map.Entry<String, String> entry : citydict.entrySet()) {
+            if (city.equals(entry.getValue())) {
+                System.out.println("Names form " + entry.getValue() + " city are: " + entry.getKey());
+                count += 1;
+            }
+        }
+        System.out.println("Count of contacts in " + city + " city is: " + count);
+
+    }
+
+
+    public void PersonStateDictionary() {
+        for (AddressBook address : book) {
+            for (Contact contact : address.list) {
+                String name = contact.getFirstName();
+                statedict.put(name, contact.getState());
+            }
+        }
+        System.out.println("Enter the state name to search for contacts: ");
+        String state = sc.next();
+        for (Map.Entry<String, String> entry : statedict.entrySet()) {
+            if (state.equals(entry.getValue())) {
+                System.out.println("Names form " + entry.getValue() + " State is: " + entry.getKey());
+                count += 1;
+            }
+        }
+        System.out.println("Count of contacts in " + state + " state is: " + count);
+    }
+
 
     public void Searchpersonwithcity() {
         System.out.println("Enter city for the contact info: ");
@@ -292,6 +332,17 @@ class AddressBook {
                     address.DefaultBook();
                     address.DefaultContact();
                     address.Searchpersonwithstate();
+                    break;
+
+                case 7:
+                    address.DefaultBook();
+                    address.DefaultContact();
+                    address.PersonCityDictionary();
+                    break;
+                case 8:
+                    address.DefaultBook();
+                    address.DefaultContact();
+                    address.PersonStateDictionary();
                     break;
 
 
